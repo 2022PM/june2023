@@ -1,24 +1,45 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
+
+function Button({value}){
+
+  const[hit,sethit]=useState(value);
+  function play()
+  {
+    sethit('X');
+  }
+  function douplay()
+  {
+    sethit('D');
+  }
+
+  return(
+    <div>
+      <button className='bg-blue-500 text-white  border border-green-900 p-2' onClick={play} onDoubleClick={douplay}>{hit}</button>
+    </div>
+  );
+}
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+    <div className='flex'>
+      <Button value='1'/>
+      <Button value='2'/>
+      <Button value='3'/>
     </div>
+    <div className='flex'>
+      <Button value='4'/>
+      <Button value='5'/>
+      <Button value='6'/>
+    </div>
+    <div className='flex'>
+      <Button value='7'/>
+      <Button value='8'/>
+      <Button value='9'/>
+    </div>
+    </div>   
   );
 }
 
